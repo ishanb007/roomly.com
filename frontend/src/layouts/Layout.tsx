@@ -4,9 +4,9 @@ import Hero from "../components/Hero";
 
 interface Props {
     children: React.ReactNode;
-}  //defining type of props as we are in ts.
+}  
 
-const Layout = ({children}:Props) =>{ //destructuring props.
+const Layout = ({children}:Props) =>{ 
     return (
         <div className="flex flex-col min-h-screen">
             <Header />

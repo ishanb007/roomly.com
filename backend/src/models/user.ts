@@ -18,9 +18,9 @@ const userSchema = new mongoose.Schema({
     lastName: {type: String, required: true}
 });
 
-//before saving check if password has been modified and hash it if it
+//pre is Mongoose middleware to execute before another function eg here before saving the values.
 userSchema.pre("save", async function(next){
-    if(this.isModified('password')){
+    if(this.isModified('password')){ // checks if specific value has been modified
         this.password=await bcrypt.hash(this.password,8);
     }
     next();

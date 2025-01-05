@@ -2,9 +2,14 @@
 export default {
   content: ["./index.html","./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    // colors: {
+    //   'beige': '#F0BB78'
+    // },
     extend: {
       container: {
-        padding:"10rem",
+        padding: {
+          md: "10rem",
+        }
       }
     },
   },
