@@ -11,6 +11,7 @@ build
 
 # misc
 .env
+.env.e2e
 .DS_Store
 .env.local
 .env.development.local
@@ -38,4 +39,6 @@ Thumbs.db
 # /frontend/.out/
 # Ignore specific React build artifacts
 # frontend/.out/
+
+dist
 

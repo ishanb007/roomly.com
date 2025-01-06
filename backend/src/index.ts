@@ -4,9 +4,14 @@ import express, {Request,Response} from 'express';
 import cors from 'cors';
 import "dotenv/config"; //loads environment variable when app starts
 import mongoose from 'mongoose';
-import userRoutes from './routes/users.ts';
-import authRoutes from "./routes/auth.ts";
+import userRoutes from './routes/users.js';
+import authRoutes from "./routes/auth.js";
 import cookieParser from "cookie-parser";
+import exp from 'constants';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 
@@ -18,6 +23,8 @@ app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true,
 }));
+
+app.use(express.static(path.join(__dirname,"../../frontend/dist")))
 
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
