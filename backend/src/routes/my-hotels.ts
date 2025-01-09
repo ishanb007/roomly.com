@@ -92,6 +92,9 @@ router.put("/:hotelId", verifyToken, upload.array("imageFiles"), async(req: Requ
         const updatedImageUrls = await uploadImages(files);
 
         hotel.imageUrls = [...updatedImageUrls, ...(updatedHotel.imageUrls || []),];
+
+        await hotel.save();
+        res.status(201).json(hotel);
     } catch (e) {
         return res.status(500).json({message: "Somenthing went wrong"})
     }
