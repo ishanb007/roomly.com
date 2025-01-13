@@ -1,14 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
-
-//ts - checking type of values in UserType to get ki vhi mil rha ki nhi, _id default id creation in mongodb
-export type UserType={
-    _id: string;
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;   
-};
+import { UserType } from "../shared/types";
 
 //model to load in db
 const userSchema = new mongoose.Schema({
