@@ -70,7 +70,7 @@ const SignIn = () => {
                     {errors.password.message}
                 </span>)}
             </label>
-            <span>
+            <span className="flex items-center justify-between">
                 <span className="text-sm">
                     Not Registered? <Link className="underline" to="/register">
                     Create and account here
